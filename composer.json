@@ -1,0 +1,19 @@
+{
+    "name": "elise/easy-coinpayments",
+    "description": "Coinpayments API package for Laravel",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "coinpayments",
+        "api"
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Elise194\\EasyCoinPayments\\": "packages/Elise194/easy-coinpayments/src/"
+        }
+    }
+}
