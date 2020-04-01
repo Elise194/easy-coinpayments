@@ -5,8 +5,8 @@ namespace Elise194\EasyCoinPayments\Actions;
 use Elise194\EasyCoinPayments\Request\ApiRequest;
 
 /**
- * Class Wallet
- * Class for wallet methods
+ * Class Wallet.
+ * Class for wallet methods.
  * @package Elise194\EasyCoinPayments\Actions
  */
 class Wallet
@@ -21,12 +21,13 @@ class Wallet
      *
      * @param ApiRequest $request
      */
-    public function __construct(ApiRequest $request) {
+    public function __construct(ApiRequest $request)
+    {
         $this->request = $request;
     }
 
     /**
-     * Coin Balances
+     * Coin Balances.
      *
      * @param bool $isNeedAll - If set to true, the response will include all coins, even those with a 0 balance
      * @param bool $isNeedLog
@@ -36,7 +37,7 @@ class Wallet
     public function getCoinBalances(bool $isNeedAll = false, bool $isNeedLog = false)
     {
         $requestData = [
-            'cmd' => 'balances'
+            'cmd' => 'balances',
         ];
 
         if ($isNeedAll) {
@@ -63,7 +64,7 @@ class Wallet
     {
         $requestData = [
             'cmd' => 'get_deposit_address',
-            'currency' => $currency
+            'currency' => $currency,
         ];
 
         return $this->request->request(
@@ -279,7 +280,7 @@ class Wallet
     {
         $requestData = [
             'cmd' => 'get_withdrawal_info',
-            'id' => $id
+            'id' => $id,
         ];
 
         return $this->request->request(
@@ -301,7 +302,7 @@ class Wallet
     {
         $requestData = [
             'cmd' => 'get_conversion_info',
-            'id' => $id
+            'id' => $id,
         ];
 
         return $this->request->request(

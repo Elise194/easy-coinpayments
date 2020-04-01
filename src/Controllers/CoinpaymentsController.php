@@ -2,10 +2,9 @@
 
 namespace Elise194\EasyCoinPayments\Controllers;
 
-use Elise194\EasyCoinPayments\CoinPayments;
+use App\Http\Controllers\Controller;
 use Elise194\EasyCoinPayments\Services\CoinpaymentsService;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CoinpaymentsController extends Controller
 {
@@ -18,10 +17,12 @@ class CoinpaymentsController extends Controller
         $post = $request->post();
         try {
             $service = new CoinpaymentsService();
-            $service->processingCallback($post, $request->header('hmac'));
-            return true;
-        } catch (\Exception $e) {
+            $service->createCoinPaymentsTransaction(0.001, 'BTC', 'BTC', '11@mail.ru');
+//            $service->processingCallback($post, $request->header('hmac'));
 
+            return;
+        } catch (\Exception $e) {
+            dd('here we are', $e->getMessage());
         }
     }
 }

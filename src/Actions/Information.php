@@ -6,7 +6,7 @@ use Elise194\EasyCoinPayments\Request\ApiRequest;
 
 /**
  * Class Information
- * Basic information commands
+ * Basic information commands.
  * @package Elise194\EasyCoinPayments\Actions
  */
 class Information
@@ -21,12 +21,13 @@ class Information
      *
      * @param ApiRequest $request
      */
-    public function __construct(ApiRequest $request) {
+    public function __construct(ApiRequest $request)
+    {
         $this->request = $request;
     }
 
     /**
-     * Get Basic Account Information
+     * Get Basic Account Information.
      *
      * @param bool $isNeedLog
      * @return string
@@ -35,7 +36,7 @@ class Information
     public function getBasicAccountInfo(bool $isNeedLog = false)
     {
         $requestData = [
-            'cmd' => 'get_basic_info'
+            'cmd' => 'get_basic_info',
         ];
 
         return $this->request->request(
@@ -46,7 +47,7 @@ class Information
     }
 
     /**
-     * Exchange Rates / Coin List
+     * Exchange Rates / Coin List.
      *
      * @param bool $isShort - If set to 1, the response won't include the full coin names and number of confirms needed
      * to save bandwidth
@@ -64,7 +65,7 @@ class Information
         }
 
         $requestData = [
-            'cmd' => 'rates'
+            'cmd' => 'rates',
         ];
 
         if ($isShort) {

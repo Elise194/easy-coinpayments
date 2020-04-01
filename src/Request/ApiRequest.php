@@ -5,7 +5,7 @@ namespace Elise194\EasyCoinPayments\Request;
 use GuzzleHttp\Client;
 
 /**
- * Class ApiRequest
+ * Class ApiRequest.
  * @package Elise194\EasyCoinPayments\Request
  */
 class ApiRequest
@@ -14,8 +14,7 @@ class ApiRequest
         METHOD_GET = 'GET',
         METHOD_POST = 'POST';
 
-    public
-        $baseUrl = 'https://www.coinpayments.net/api.php',
+    public $baseUrl = 'https://www.coinpayments.net/api.php',
         $publicApiKey,
         $privateApiKey,
         $ipnSecret;
@@ -59,7 +58,7 @@ class ApiRequest
      * @param $method
      * @param array $data
      * @param bool $needLog
-     * @return string
+     * @return array
      * @throws \Exception
      */
     public function request($method, array $data, bool $needLog = false)
@@ -71,10 +70,15 @@ class ApiRequest
         try {
             $response = $this->httpClient->request($method, '', [
                 'headers' => $headers,
-                'body' => $rowData
+                'body' => $rowData,
             ]);
 
-            return $response->getBody()->getContents();
+            $responseData =  json_decode($response->getBody()->getContents(), true);
+            if ($responseData['error'] && $responseData['error'] !== 'ok') {
+                throw new \Exception($responseData['error']);
+            }
+
+            return $responseData;
         } catch (\Exception $e) {
             throw $e;
         }
@@ -86,7 +90,7 @@ class ApiRequest
     protected function defaultHttpClientConfig(): array
     {
         return [
-            'base_uri' => $this->baseUrl
+            'base_uri' => $this->baseUrl,
         ];
     }
 
@@ -98,7 +102,7 @@ class ApiRequest
         return [
             'version' => 1,
             'key' => $this->publicApiKey,
-            'format' => 'json'
+            'format' => 'json',
         ];
     }
 
@@ -110,7 +114,7 @@ class ApiRequest
     {
         return [
             'Content-Type' => 'application/x-www-form-urlencoded',
-            'HMAC' => hash_hmac('sha512', $data, $this->privateApiKey)
+            'HMAC' => hash_hmac('sha512', $data, $this->privateApiKey),
         ];
     }
 }

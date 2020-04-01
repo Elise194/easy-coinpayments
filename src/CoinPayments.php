@@ -8,7 +8,7 @@ use Elise194\EasyCoinPayments\Actions\Wallet;
 use Elise194\EasyCoinPayments\Request\ApiRequest;
 
 /**
- * Class CoinPayments
+ * Class CoinPayments.
  * @package Elise194\EasyCoinPayments
  */
 class CoinPayments
@@ -25,9 +25,9 @@ class CoinPayments
     public function __construct()
     {
         $this->request = new ApiRequest(
-            'fc1aa7cd945d0d62583d2f04ccbc473475828754c919645e2cd67a07eca16ed8',
-            '3a09E710E3a49d62D29d70f774b888F5e8D402b788d7BEaF33B5f1Cb9dcC8C59',
-            config('ipnSecret')
+            config('coinpayments.api_public'),
+            config('coinpayments.api_private'),
+            config('coinpayments.ipnSecret')
         );
     }
 

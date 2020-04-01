@@ -5,7 +5,7 @@ namespace Elise194\EasyCoinPayments\Actions;
 use Elise194\EasyCoinPayments\Request\ApiRequest;
 
 /**
- * Methods for receiving payments
+ * Methods for receiving payments.
  *
  * Class Payment
  * @package Elise194\EasyCoinPayments\Actions
@@ -22,12 +22,13 @@ class Payment
      *
      * @param ApiRequest $request
      */
-    public function __construct(ApiRequest $request) {
+    public function __construct(ApiRequest $request)
+    {
         $this->request = $request;
     }
 
     /**
-     * @param int $amount - The amount of the transaction in the original currency (currency1 below)
+     * @param float $amount - The amount of the transaction in the original currency (currency1 below)
      * @param string $currency1 - The original currency of the transaction
      * @param string $currency2 - The currency the buyer will be sending
      * @param string $buyer_email - Set the buyer's email address
@@ -47,7 +48,7 @@ class Payment
      * @throws \Exception
      */
     public function createTransaction(
-        int $amount,
+        float $amount,
         string $currency1,
         string $currency2,
         string $buyer_email,
@@ -74,7 +75,7 @@ class Payment
     }
 
     /**
-     * Get Callback Address
+     * Get Callback Address.
      *
      * @param string $currency - The currency the buyer will be sending
      * @param string|null $ipnUrl - URL for your IPN callbacks.
@@ -111,7 +112,7 @@ class Payment
     }
 
     /**
-     * Get Transaction Information
+     * Get Transaction Information.
      *
      * @param bool $isMultiple - if set to true lets you get information about up to 25 transactions
      * @param string $txId - for single transaction: The transaction ID to query (API key must belong to the seller.)
@@ -141,7 +142,7 @@ class Payment
     }
 
     /**
-     * Get Transaction IDs
+     * Get Transaction IDs.
      *
      * @param array $options - optional fields
      *      @option int $limit - The maximum number of transaction IDs to return from 1-100. (default: 25)
@@ -155,10 +156,10 @@ class Payment
      * @return string
      * @throws \Exception
      */
-    public function getTXList(array $options,  bool $isNeedLog = false)
+    public function getTXList(array $options, bool $isNeedLog = false)
     {
         $requestData = [
-            'cmd' => 'get_tx_ids'
+            'cmd' => 'get_tx_ids',
         ];
 
         foreach ($options as $option => $value) {
