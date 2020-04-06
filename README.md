@@ -49,7 +49,7 @@ $responseData = $coinpayments->payment()->createTransaction(
 `````
 
 Other functions from API are divided to sections.
-#####Information
+Information
 
 The main commands from "information" sections in CoinPayments documentations
 
@@ -59,7 +59,7 @@ $coinpayments->information()->getBasicAccountInfo();
 $coinpayments->information()->getExchageRates($isShort, $accepted);
 ```` 
 
-#####Payments.
+Payments.
 
 Getting callback address example:
 ````php
@@ -69,7 +69,7 @@ $coinpayments->payment()->getCallbackAddress($currency, $ipnUrl, $label);
 
 The full list of functions is in the /Actions/Payment.php. It matches functions from CoinPayments methods from "Receiving payments" section in documentation.
 
-#####Wallet
+Wallet
 
 Example:
 ```php
