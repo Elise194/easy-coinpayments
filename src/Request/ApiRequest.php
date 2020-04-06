@@ -73,7 +73,7 @@ class ApiRequest
                 'body' => $rowData,
             ]);
 
-            $responseData =  json_decode($response->getBody()->getContents(), true);
+            $responseData = json_decode($response->getBody()->getContents(), true);
             if ($responseData['error'] && $responseData['error'] !== 'ok') {
                 throw new \Exception($responseData['error']);
             }

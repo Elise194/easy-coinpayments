@@ -50,7 +50,7 @@ class CoinpaymentsTransaction extends Model
             $this->_statusHistoryArrayData = json_decode($this->status_history);
         }
 
-        return (array)$this->_statusHistoryArrayData;
+        return (array) $this->_statusHistoryArrayData;
     }
 
     /**
@@ -63,7 +63,7 @@ class CoinpaymentsTransaction extends Model
     }
 
     /**
-     * Добаление истории
+     * Update status history.
      */
     public function addHistory()
     {

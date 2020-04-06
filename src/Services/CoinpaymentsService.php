@@ -63,7 +63,7 @@ class CoinpaymentsService
         /** @var CoinPayments $coinpayments */
         $coinpayments = app('coinpayments');
 
-        if (!hash_equals($hmac, hash_hmac("sha512", http_build_query($post), $coinpayments->request->ipnSecret))) {
+        if (!hash_equals($hmac, hash_hmac('sha512', http_build_query($post), $coinpayments->request->ipnSecret))) {
             throw new \Exception('IPN is wrong');
         }
 
