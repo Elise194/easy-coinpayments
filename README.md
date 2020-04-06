@@ -1,5 +1,8 @@
 # CoinPayments API wrapper
 
+[![Latest Stable Version](https://poser.pugx.org/elise194/easy-coinpayments/version)](https://packagist.org/packages/elise194/easy-coinpayments)
+[![License](https://poser.pugx.org/elise194/easy-coinpayments/license)](https://packagist.org/packages/elise194/easy-coinpayments)
+
  CoinPayments API wrapper for Laravel framework
  
 **Install**
