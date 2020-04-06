@@ -50,7 +50,7 @@ class CoinpaymentsService
 
         if (isset($responseResult['dest_tag'])) {
             $transactionData['dest_tag'] = $responseResult['dest_tag'];
-        };
+        }
 
         $transaction = new CoinpaymentsTransaction($transactionData);
         $transaction->save();
