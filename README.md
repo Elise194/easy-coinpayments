@@ -49,6 +49,7 @@ $responseData = $coinpayments->payment()->createTransaction(
 `````
 
 Other functions from API are divided to sections.
+
 Information
 
 The main commands from "information" sections in CoinPayments documentations
